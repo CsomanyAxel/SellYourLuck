@@ -20,4 +20,12 @@ public class StartController {
     public void onBtnRulesAction(ActionEvent actionEvent) {
         labelRules.setVisible(!labelRules.isVisible());
     }
+
+    public void onBtnHistoryAction(ActionEvent actionEvent) {
+        try {
+            App.switchToScene("history", "Sell Your Luck!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

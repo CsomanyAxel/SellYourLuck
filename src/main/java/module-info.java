@@ -1,6 +1,7 @@
 module at.htlleonding.demo {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
     opens at.htlleonding.demo to javafx.fxml;
     exports at.htlleonding.demo;

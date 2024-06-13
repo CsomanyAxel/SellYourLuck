@@ -1,6 +1,7 @@
 package at.htlleonding.demo.controller;
 
 import at.htlleonding.demo.App;
+import at.htlleonding.demo.database.DatabaseOperations;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -19,7 +20,9 @@ public class GameController {
     public Button btnRoll;
     public ListView lvSoldRolls;
     public int currentRoll = 0;
+    public String currentlength = "";
     public int currentPoints = 0;
+    public int currentSells = 0;
     public Label pointsLabel;
     public Button btnOdd;
     public Button btnEven;
@@ -55,6 +58,7 @@ public class GameController {
 
                 if(timeRemaining <= 0) {
                     timeline.stop();
+                    DatabaseOperations.addGame(currentlength, currentPoints, currentSells);
                     try {
                         App.switchToScene("result", "Sell Your Luck!");
                     } catch (Exception e) {
@@ -70,14 +74,17 @@ public class GameController {
 
     public void onBtnShortAction(ActionEvent actionEvent) {
         startGame(30);
+        currentlength = "SHORT";
     }
 
     public void onBtnMediumAction(ActionEvent actionEvent) {
         startGame(60);
+        currentlength = "MEDIUM";
     }
 
     public void onBtnLongAction(ActionEvent actionEvent) {
         startGame(180);
+        currentlength = "LONG";
     }
 
     private void startGame(int seconds) {
@@ -158,6 +165,7 @@ public class GameController {
 
         if (success) {
             currentPoints += 2;
+            currentSells++;
         } else {
             currentPoints -= 1;
         }
@@ -178,6 +186,7 @@ public class GameController {
 
         if (success) {
             currentPoints += 2;
+            currentSells++;
         } else {
             currentPoints -= 1;
         }
@@ -207,6 +216,7 @@ public class GameController {
 
         if (threeEqual) {
             currentPoints += 5;
+            currentSells++;
         } else {
             currentPoints -= 3;
         }
@@ -237,6 +247,7 @@ public class GameController {
 
         if (fourEqual) {
             currentPoints += 8;
+            currentSells++;
         } else {
             currentPoints -= 6;
         }
@@ -255,6 +266,7 @@ public class GameController {
 
         if(rolls[0] == rolls[1] && rolls[1] == rolls[2] && rolls[2] == rolls[3] && rolls[3] == rolls[4]) {
             currentPoints += 25;
+            currentSells++;
             success = true;
         } else {
             currentPoints -= 15;
