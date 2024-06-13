@@ -25,7 +25,7 @@
         </font>
     </Label>
 
-    <Button fx:id="btnRoll" visible="false" text="Roll" onAction="#onBtnRollAction" scaleX="3" scaleY="3"/>
+    <Button fx:id="btnRoll" visible="false" text="Roll" onAction="#onBtnRollAction" onKeyReleased="#listenKeyRelease" scaleX="3" scaleY="3"/>
 
     <HBox fx:id="selectionBox" spacing="100" alignment="CENTER">
         <Button fx:id="btnShort" textAlignment="CENTER" text="Short&#10;(30 sec.)" onAction="#onBtnShortAction" scaleX="2" scaleY="2"/>
@@ -36,29 +36,29 @@
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0">
         <Button fx:id="btnOdd" onAction="#btnSellOddOnAction" scaleX="1.5" scaleY="1.5" disable="true">
             <graphic>
-                <Text text="Sell odd roll&#10;for 2 points" textAlignment="CENTER"/>
+                <Text text="Sell odd roll&#10;for 2 points&#10;(A)" textAlignment="CENTER"/>
             </graphic>
         </Button>
         <Button fx:id="btnEven" onAction="#btnSellEvenOnAction" scaleX="1.5" scaleY="1.5" disable="true">
             <graphic>
-                <Text text="Sell even roll&#10;for 2 points" textAlignment="CENTER"/>
+                <Text text="Sell even roll&#10;for 2 points&#10;(S)" textAlignment="CENTER"/>
             </graphic>
         </Button>
     </HBox>
     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0">
         <Button fx:id="btnTriple" onAction="#btnSellTripleOnAction" scaleX="1.5" scaleY="1.5" disable="true">
             <graphic>
-                <Text text="Sell triplet&#10;for 5 points" textAlignment="CENTER"/>
+                <Text text="Sell triplet&#10;for 5 points&#10;(J)" textAlignment="CENTER"/>
             </graphic>
         </Button>
         <Button fx:id="btnQuad" onAction="#btnSellQuadOnAction" scaleX="1.5" scaleY="1.5" disable="true">
             <graphic>
-                <Text text="Sell quadruplet&#10;for 8 points" textAlignment="CENTER"/>
+                <Text text="Sell quadruplet&#10;for 8 points&#10;(K)" textAlignment="CENTER"/>
             </graphic>
         </Button>
         <Button fx:id="btnYahtzee" onAction="#btnSellYahtzeeOnAction" scaleX="1.5" scaleY="1.5" disable="true">
             <graphic>
-                <Text text="Sell yahtzee&#10;for 25 points" textAlignment="CENTER"/>
+                <Text text="Sell yahtzee&#10;for 25 points&#10;(L)" textAlignment="CENTER"/>
             </graphic>
         </Button>
     </HBox>

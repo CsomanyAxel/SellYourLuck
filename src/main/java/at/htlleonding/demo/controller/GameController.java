@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.util.Duration;
 
@@ -67,21 +69,23 @@ public class GameController {
     }
 
     public void onBtnShortAction(ActionEvent actionEvent) {
-        startTimer(30);
-        selectionBox.setVisible(false);
-        btnRoll.setVisible(true);
+        startGame(30);
     }
 
     public void onBtnMediumAction(ActionEvent actionEvent) {
-        startTimer(60);
-        selectionBox.setVisible(false);
-        btnRoll.setVisible(true);
+        startGame(60);
     }
 
     public void onBtnLongAction(ActionEvent actionEvent) {
-        startTimer(180);
+        startGame(180);
+    }
+
+    private void startGame(int seconds) {
+        startTimer(seconds);
         selectionBox.setVisible(false);
         btnRoll.setVisible(true);
+
+        btnRoll.requestFocus();
     }
 
     private String getRollSymbol(int roll) {
@@ -263,5 +267,42 @@ public class GameController {
 
         lvSoldRolls.getItems().add(0, getSellMessage(5, success));
         btnRoll.requestFocus();
+    }
+
+    public void listenKeyRelease(KeyEvent keyEvent) {
+        KeyCode code = keyEvent.getCode();
+
+        switch (code) {
+            case A:
+                if(!btnOdd.isDisabled()) {
+                    btnSellOddOnAction(null);
+                }
+                break;
+            case S:
+                if(!btnEven.isDisabled()) {
+                    btnSellEvenOnAction(null);
+                }
+                break;
+            case J:
+                if(!btnTriple.isDisabled()) {
+                    btnSellTripleOnAction(null);
+                }
+                break;
+            case K:
+                if(!btnQuad.isDisabled()) {
+                    btnSellQuadOnAction(null);
+                }
+                break;
+            case L:
+                if(!btnYahtzee.isDisabled()) {
+                    btnSellYahtzeeOnAction(null);
+                }
+                break;
+            case SPACE:
+                if(!btnRoll.isDisabled()) {
+                    onBtnRollAction(null);
+                }
+                break;
+        }
     }
 }
