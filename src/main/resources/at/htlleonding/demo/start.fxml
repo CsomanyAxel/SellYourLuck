@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.ProgressBar?>
+<VBox alignment="CENTER" prefHeight="355.0" prefWidth="500.0" spacing="45.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlleonding.demo.controller.StartController">
+    <children>
+        <Label text="⚄ Dice Game ⚄">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
+
+        <Button fx:id="btnStart" text="Start" onAction="#onBtnStartAction" scaleX="4" scaleY="4"/>
+
+    </children>
+</VBox>

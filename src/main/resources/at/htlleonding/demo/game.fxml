@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.text.Text?>
+<VBox alignment="CENTER" prefHeight="355.0" prefWidth="500.0" spacing="45.0" xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlleonding.demo.controller.GameController">
+    <Label fx:id="pointsLabel" text="Current Points: 0">
+        <font>
+            <Font size="30.0"/>
+        </font>
+    </Label>
+    <Label fx:id="rollLabel" text="-   -   -   -   -">
+        <font>
+            <Font size="80.0"/>
+        </font>
+    </Label>
+
+    <Button fx:id="btnRoll" text="Roll" onAction="#onBtnRollAction" scaleX="3" scaleY="3"/>
+
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0">
+        <Button fx:id="btnOdd" onAction="#btnSellOddOnAction" scaleX="1.5" scaleY="1.5" disable="true">
+            <graphic>
+                <Text text="Sell odd roll&#10;for 2 points" textAlignment="CENTER"/>
+            </graphic>
+        </Button>
+        <Button fx:id="btnEven" onAction="#btnSellEvenOnAction" scaleX="1.5" scaleY="1.5" disable="true">
+            <graphic>
+                <Text text="Sell even roll&#10;for 2 points" textAlignment="CENTER"/>
+            </graphic>
+        </Button>
+    </HBox>
+    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="120.0">
+        <Button fx:id="btnTriple" onAction="#btnSellTripleOnAction" scaleX="1.5" scaleY="1.5" disable="true">
+            <graphic>
+                <Text text="Sell triplet&#10;for 5 points" textAlignment="CENTER"/>
+            </graphic>
+        </Button>
+        <Button fx:id="btnQuad" onAction="#btnSellQuadOnAction" scaleX="1.5" scaleY="1.5" disable="true">
+            <graphic>
+                <Text text="Sell quadruplet&#10;for 8 points" textAlignment="CENTER"/>
+            </graphic>
+        </Button>
+        <Button fx:id="btnYahtzee" onAction="#btnSellYahtzeeOnAction" scaleX="1.5" scaleY="1.5" disable="true">
+            <graphic>
+                <Text text="Sell yahtzee&#10;for 25 points" textAlignment="CENTER"/>
+            </graphic>
+        </Button>
+    </HBox>
+
+    <ListView fx:id="lvSoldRolls" maxHeight="200.0" maxWidth="400.0" minHeight="200.0" minWidth="300.0"
+              prefHeight="200.0" prefWidth="300.0"/>
+</VBox>
