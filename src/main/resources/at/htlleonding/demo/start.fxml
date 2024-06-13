@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 <?import javafx.scene.control.ProgressBar?>
-<VBox alignment="CENTER" prefHeight="355.0" prefWidth="500.0" spacing="45.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlleonding.demo.controller.StartController">
+<VBox alignment="CENTER" prefHeight="355.0" prefWidth="500.0" spacing="70.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlleonding.demo.controller.StartController">
     <children>
         <Label text="⚄ Dice Game ⚄">
             <font>
@@ -19,7 +19,12 @@
             </font>
         </Label>
 
-        <Button fx:id="btnStart" text="Start" onAction="#onBtnStartAction" scaleX="4" scaleY="4"/>
-
+        <Button fx:id="btnStart" text="Start" onAction="#onBtnStartAction" scaleX="3" scaleY="3"/>
+        <Button fx:id="btnRules" text="Show / Hide Rules" onAction="#onBtnRulesAction" scaleX="1.5" scaleY="1.5"/>
+        <Label fx:id="labelRules" textAlignment="CENTER" visible="false" text="Your time is limited.&#10;Roll your dice and sell them for points, according to what applies to your current roll.&#10;But be careful, presenting a roll that a buyer is not interested in will cost you.">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Label>
     </children>
 </VBox>

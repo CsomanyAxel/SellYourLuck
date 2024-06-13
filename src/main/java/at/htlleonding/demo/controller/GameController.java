@@ -1,10 +1,16 @@
 package at.htlleonding.demo.controller;
 
+import at.htlleonding.demo.App;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
+import javafx.util.Duration;
 
 public class GameController {
     public Label rollLabel;
@@ -18,8 +24,65 @@ public class GameController {
     public Button btnTriple;
     public Button btnQuad;
     public Button btnYahtzee;
+    public Label timerLabel;
+    public HBox selectionBox;
+    private Timeline timeline;
+    private int timeRemaining;
 
     private int[] rolls = new int[5];
+
+    public String formatTime(int seconds) {
+        int minutes = seconds / 60;
+        int remainingSeconds = seconds % 60;
+        return String.format("%02d:%02d", minutes, remainingSeconds);
+    }
+
+    public void startTimer(int seconds) {
+        timeRemaining = seconds;
+        timerLabel.setText(formatTime(timeRemaining));
+
+        if(timeline != null) {
+            timeline.stop();
+        }
+
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                timeRemaining--;
+                timerLabel.setText(formatTime(timeRemaining));
+
+                if(timeRemaining <= 0) {
+                    timeline.stop();
+                    try {
+                        App.switchToScene("result", "Sell Your Luck!");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }));
+
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+
+    public void onBtnShortAction(ActionEvent actionEvent) {
+        startTimer(30);
+        selectionBox.setVisible(false);
+        btnRoll.setVisible(true);
+    }
+
+    public void onBtnMediumAction(ActionEvent actionEvent) {
+        startTimer(60);
+        selectionBox.setVisible(false);
+        btnRoll.setVisible(true);
+    }
+
+    public void onBtnLongAction(ActionEvent actionEvent) {
+        startTimer(180);
+        selectionBox.setVisible(false);
+        btnRoll.setVisible(true);
+    }
 
     private String getRollSymbol(int roll) {
         switch (roll) {

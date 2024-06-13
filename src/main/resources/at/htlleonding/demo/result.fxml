@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.ProgressBar?>
+<VBox alignment="CENTER" prefHeight="355.0" prefWidth="500.0" spacing="70.0" xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.htlleonding.demo.controller.ResultController">
+    <Label text="Finished!">
+        <font>
+            <Font size="40.0"/>
+        </font>
+    </Label>
+
+    <Label fx:id="labelResult" textAlignment="CENTER"
+           text="The game is over.&#10;The results of your games can be seen on the history screen.">
+        <font>
+            <Font size="25.0"/>
+        </font>
+    </Label>
+
+    <Button fx:id="btnBack" text="Back to start" onAction="#onBackAction" scaleX="2" scaleY="2"/>
+</VBox>
