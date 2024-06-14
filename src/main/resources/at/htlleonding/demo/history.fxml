@@ -20,4 +20,6 @@
 
     <ListView fx:id="listViewHistory" maxHeight="200.0" maxWidth="400.0" minHeight="200.0" minWidth="300.0"
               prefHeight="200.0" prefWidth="300.0"/>
+
+    <Button fx:id="btnBack" text="Back to start" onAction="#onBackAction" scaleX="2" scaleY="2"/>
 </VBox>

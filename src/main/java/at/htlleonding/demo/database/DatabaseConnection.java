@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
-    private static final String CONNECTION_STRING = "jdbc:derby:database;create=true";
+    private static final String CONNECTION_STRING = "jdbc:derby:database";
 
     private static DatabaseConnection instance;
     private Connection connection;

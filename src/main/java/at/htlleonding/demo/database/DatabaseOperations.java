@@ -26,7 +26,6 @@ public class DatabaseOperations {
                 }
             }
 
-            database.closeConnection();
         } catch (SQLException e) {
             System.err.println("Error (addGame): " + e.getMessage());
             e.printStackTrace();
@@ -63,7 +62,7 @@ public class DatabaseOperations {
         DatabaseConnection database = DatabaseConnection.getInstance();
         LinkedList<Game> games = new LinkedList<>();
 
-        String query = "SELECT * FROM game ORDER BY ID DESC";
+        String query = "SELECT * FROM game ORDER BY ID ASC";
         try (Connection conn = database.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
@@ -71,7 +70,6 @@ public class DatabaseOperations {
                 games.add(new Game(rs.getInt("ID"), rs.getString("LENGTH"), rs.getInt("POINTS"), rs.getInt("SELLS")));
             }
 
-            database.closeConnection();
         } catch (SQLException e) {
             System.err.println("Error (getAllGames): " + e.getMessage());
             e.printStackTrace();
